@@ -12,13 +12,27 @@ class MainScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final selectedIndex = useState(0);
+    final pageController = usePageController(initialPage: 0);
     return Scaffold(
-      body: SafeArea(child: _buildView()[selectedIndex.value]),
+      body: SafeArea(
+        child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageController,
+          children: _buildView(),
+          onPageChanged: (value) {
+            selectedIndex.value = value;
+          },
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey.shade900,
         currentIndex: selectedIndex.value,
         onTap: (index) {
-          selectedIndex.value = index;
+          pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.ease,
+          );
         },
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,
