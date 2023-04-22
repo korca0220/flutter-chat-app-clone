@@ -1,4 +1,4 @@
-package com.example.flutter_chat_app_clone
+package com.chatAppClone
 
 import io.flutter.embedding.android.FlutterActivity
 
