@@ -58,12 +58,17 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeData(
             primaryColor: const Color(0xffe78111),
-            scaffoldBackgroundColor: Colors.grey.shade800,
+            scaffoldBackgroundColor: Colors.grey.shade900,
             useMaterial3: true,
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.grey.shade900,
+              titleTextStyle: TextStyle(
+                color: Colors.white,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ),
-          // routeInformationProvider: _router.routeInformationProvider,
-          // routeInformationParser: _router.routeInformationParser,
-          // routerDelegate: _router.routerDelegate,
           routerConfig: router,
         );
       },

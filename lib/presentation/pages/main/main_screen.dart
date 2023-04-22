@@ -4,6 +4,7 @@ import 'package:flutter_chat_app_clone/presentation/pages/home/home_view.dart';
 
 import 'package:flutter_chat_app_clone/presentation/pages/profile/profile_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainScreen extends HookWidget {
   const MainScreen({super.key});
@@ -22,9 +23,18 @@ class MainScreen extends HookWidget {
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.house),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.comment),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: FaIcon(FontAwesomeIcons.user),
+            label: 'Profile',
+          ),
         ],
       ),
     );
