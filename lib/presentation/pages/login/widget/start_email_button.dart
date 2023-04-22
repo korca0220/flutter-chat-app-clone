@@ -13,8 +13,10 @@ import 'package:flutter_chat_app_clone/global/widget/widget.dart'
 import 'package:flutter_chat_app_clone/presentation/pages/login/widget/email_auth_dialog.dart';
 
 class StartEmailButton extends StatelessWidget {
+  final PageController pageController;
   const StartEmailButton({
     super.key,
+    required this.pageController,
   });
 
   @override
@@ -27,7 +29,9 @@ class StartEmailButton extends StatelessWidget {
           barrierLabel:
               MaterialLocalizations.of(context).modalBarrierDismissLabel,
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const EmailAuthDialog();
+            return EmailAuthDialog(
+              pageController: pageController,
+            );
           },
         );
       },
