@@ -28,3 +28,9 @@ lib
     ㄴ providers // provider, DI
   main.dart
 ```
+
+## 적용된 기술
+- 로그인 사앹에 따라서 Login 화면으로 이동되도록 redirect logic 적용
+- 클린 아키텍처 구조로 최대한 분리하고 DI을 적용
+- multiple_result 패키지를 사용하여 에러로직 처리
+- Loading, Toast 적용
