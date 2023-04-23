@@ -41,6 +41,7 @@ class ProfileView extends StatelessWidget {
                   width: 100.w,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
+                    color: Colors.white,
                     image: user!.photoURL != null
                         ? DecorationImage(
                             image: NetworkImage(user.photoURL!),
