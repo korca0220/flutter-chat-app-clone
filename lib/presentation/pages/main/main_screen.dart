@@ -1,10 +1,13 @@
+// flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_app_clone/presentation/pages/chat/chat_view.dart';
-import 'package:flutter_chat_app_clone/presentation/pages/home/home_view.dart';
 
-import 'package:flutter_chat_app_clone/presentation/pages/profile/profile_view.dart';
+// packages
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+// pages
+import 'package:flutter_chat_app_clone/presentation/pages/pages.dart'
+    show ChatView, HomeView, ProfileView;
 
 class MainScreen extends HookWidget {
   const MainScreen({super.key});

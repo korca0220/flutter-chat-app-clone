@@ -50,7 +50,6 @@ class LoginScreenViewModel extends ChangeNotifier {
       (success) {
         _onLoading(false);
         _eventController.add(const LoginScreenUiEvent.popPage());
-        _eventController.add(const LoginScreenUiEvent.routePage('home'));
       },
       (error) {
         _onLoading(false);
@@ -65,7 +64,6 @@ class LoginScreenViewModel extends ChangeNotifier {
     res.when(
       (success) {
         _onLoading(false);
-        _eventController.add(const LoginScreenUiEvent.routePage('home'));
       },
       (error) {
         _onLoading(false);
@@ -82,7 +80,6 @@ class LoginScreenViewModel extends ChangeNotifier {
       (success) {
         _onLoading(false);
         _eventController.add(const LoginScreenUiEvent.popPage());
-        _eventController.add(const LoginScreenUiEvent.routePage('home'));
       },
       (error) {
         _onLoading(false);

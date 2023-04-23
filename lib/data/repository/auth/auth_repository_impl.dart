@@ -1,7 +1,12 @@
+// dart
+import 'dart:typed_data';
+
 // packages
-import 'package:flutter_chat_app_clone/data/source/remote/api/auth_api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:multiple_result/multiple_result.dart';
+
+// api
+import 'package:flutter_chat_app_clone/data/source/source.dart' show AuthApi;
 
 // repository interface
 import 'package:flutter_chat_app_clone/domain/repository/auth/auth_repository.dart';
@@ -44,6 +49,16 @@ class AuthRepositoryImpl implements AuthRepository {
     final res = await authApi.signUpWithEmail(email, password);
     return res.when(
       (useCredential) => Success(useCredential),
+      (error) => Error(error),
+    );
+  }
+
+  @override
+  Future<Result<bool, Exception>> profileImageUpload(
+      String imageName, Uint8List image) async {
+    final res = await authApi.profileImageUpload(imageName, image);
+    return res.when(
+      (success) => Success(success),
       (error) => Error(error),
     );
   }

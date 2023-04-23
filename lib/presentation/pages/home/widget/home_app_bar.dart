@@ -14,6 +14,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
+      centerTitle: false,
       title: Row(
         children: const [
           Text('마곡동'),
@@ -31,7 +32,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white,
           ),
         ),
-        SizedBox(width: 10.w),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: const Icon(
@@ -39,7 +39,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Colors.white,
           ),
         ),
-        SizedBox(width: 10.w),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 5.w),
           child: const Icon(

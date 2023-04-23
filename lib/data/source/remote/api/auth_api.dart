@@ -1,11 +1,16 @@
+// dart
+import 'dart:typed_data';
+
 // packages
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 class AuthApi {
   final FirebaseAuth firebaseAuth;
-  AuthApi({required this.firebaseAuth});
+  final FirebaseStorage firebaseStorage;
+  AuthApi({required this.firebaseAuth, required this.firebaseStorage});
 
   Future<Result<UserCredential, Exception>> signInWithGoogle() async {
     try {
@@ -53,6 +58,23 @@ class AuthApi {
       await firebaseAuth.signOut();
       return const Success(true);
     } on FirebaseAuthException catch (e) {
+      return Error(e);
+    }
+  }
+
+  Future<Result<bool, Exception>> profileImageUpload(
+      String imageName, Uint8List image) async {
+    try {
+      TaskSnapshot task = await firebaseStorage
+          .ref()
+          .child('profileImage')
+          .child(imageName)
+          .putData(image);
+      var downLoadUrl = await task.ref.getDownloadURL();
+
+      await firebaseAuth.currentUser!.updatePhotoURL(downLoadUrl);
+      return const Success(true);
+    } on FirebaseException catch (e) {
       return Error(e);
     }
   }
