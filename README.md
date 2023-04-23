@@ -1,4 +1,4 @@
-# flutter_chat_app_clone
+# flutter_chat_app_clone(당근 마켓 디자인 클론)
 
 실행 방법
 - firebase 파일 압축해제
